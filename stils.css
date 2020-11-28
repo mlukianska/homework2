@@ -1,0 +1,225 @@
+body {
+    background: white;
+    margin: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    text-align: center;
+    height: 100vh;
+
+    display: grid;
+    grid-gap: 1em;
+    
+    grid-template-areas:
+        "header"
+        "hero"
+        "body"
+        "footer"
+}
+
+header {
+    border-radius: 15px 50px 30px;
+    background:   rgb(225, 250, 225);
+    font-weight: bold;
+    padding: 5px;
+    grid-area: header;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+    grid-template-areas:
+        "brand brand"
+        "nav tools";
+}
+
+header .brand {
+    background: lavender;
+    grid-area: brand;
+}
+
+header nav {
+    background: lavender;
+    grid-area: nav;
+}
+
+header .tools {
+    background:lavender;
+    grid-area: tools;
+}
+
+.hero {
+    border-radius: 15px 50px 30px;
+    background:  rgb(225, 250, 225);
+    padding: 5px;
+    grid-area: hero;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1em;
+    grid-template-areas:
+        "action";
+}
+
+.hero .action {
+    background: lavenderblush;
+    grid-area: action;
+}
+
+.hero .feature {
+    background: lavenderblush;
+    grid-area: feature;
+}
+
+main {
+    border-radius: 15px 50px 30px;
+    background: rgb(225, 250, 225);
+    padding: 5px;
+    grid-area: body;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1em;
+    grid-template-areas: 
+        "feature"
+        "ad"
+        "listing";
+}
+
+main .feature {
+    background: lightgoldenrodyellow;
+    grid-area: feature;
+}
+
+main .mobile-ad {
+    grid-area: ad;
+}
+
+main .listing {
+    background: lightgoldenrodyellow;
+    grid-area: listing;
+}
+
+footer {
+    font-weight: bold;
+    border-radius: 15px 50px 30px;
+    background: rgb(250, 210, 250);
+    padding: 5px;
+    grid-area: footer;
+}
+
+.desktop-ad {
+    grid-area: ad;
+    display: none;
+}
+
+.hero .feature {
+    display: none;
+}
+
+.sidebar {
+    border-radius: 15px 50px 30px;
+    background: rgb(225, 250, 225);
+    padding: 5px;
+    grid-area: sidebar;
+
+    display: none;
+}
+
+.sidebar .feature {
+    background: rgb(209, 241, 241);
+    height: 100%;
+}
+
+.mobile-ad img {
+    vertical-align: top;
+    width: 100%;
+}
+
+.desktop-ad img {
+    vertical-align: top;
+    width: 350px;
+}
+
+.mobile-ad:hover {
+    opacity: 0.5;
+}
+
+.desktop-ad:hover {
+    opacity: 0.5;
+}
+
+@media (min-width: 576px) {
+    body {
+        grid-template-rows: auto auto 1fr auto auto;
+        grid-template-areas:
+            "header"
+            "hero"
+            "body"
+            "sidebar"
+            "footer";
+    }
+
+        header {
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-areas:
+            "brand nav tools";
+    }
+
+        .hero {
+        grid-template-areas:
+            "feature"
+            "action";
+    }
+
+    .hero .feature {
+        display: block;
+    }
+
+        main {
+        grid-template-columns: 1fr 200px;
+        grid-template-rows: auto 1fr;
+        grid-template-areas:
+            "feature ad"
+            "listing listing";
+    }
+
+        .sidebar {
+        display: grid;
+    }
+
+    .mobile-ad img {
+        width: 200px;
+    }
+}
+
+@media (min-width: 992px) {
+    body {
+        grid-template-columns: 1fr 350px;
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-areas:
+            "header header"
+            "hero ad"
+            "body sidebar"
+            "footer footer"
+    }
+
+       .hero {
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas:
+            "feature action"
+    }
+
+        main {
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 1fr;
+        grid-template-areas:
+            "feature listing"
+    }
+
+    .mobile-ad {
+        display: none;
+    }
+
+    .desktop-ad {
+        display: block;
+    }
+}
